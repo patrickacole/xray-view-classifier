@@ -42,8 +42,8 @@ optional arguments:
 ## Training the model
 The code to train and test the models accuracy is called `main.py`. The best model was trained for 10 epochs and is stored at `checkpoints/last.pth`. Below are some plots of the accuracy and the loss obtained when training on a subset of the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/) dataset by Stanford.
 
-<img src="./outputs/loss.png" alt="drawing" width="300"/>
-<img src="./outputs/accuracy.png" alt="drawing" width="300"/>
+<img src="./outputs/loss.png" alt="drawing" width="200"/>
+<img src="./outputs/accuracy.png" alt="drawing" width="200"/>
 
 Below is the usage for training / testing the model
 <pre><code>Usage: main.py [-h] [--data DATA] [--lr LR] [--epochs EPOCHS] [--batch BATCH]
