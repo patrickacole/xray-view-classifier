@@ -223,7 +223,7 @@ def test(model, testloader):
     with torch.no_grad():
         avg_test_loss, avg_test_acc = test_epoch(model, testloader, criterion)
 
-    print("Pretrained ResNet34 trained on CheXpert produced an accuracy score of {:0.4f} with a loss value of {:0.4f}" \
+    print("Pretrained ResNet18 trained on CheXpert produced an accuracy score of {:0.4f} with a loss value of {:0.4f}" \
           .format(avg_test_acc, avg_test_loss))
 
 
