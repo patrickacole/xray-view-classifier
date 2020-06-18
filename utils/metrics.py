@@ -10,8 +10,9 @@ def accuracy_calculation(predicts, labels, threshold=0.5):
     @param  labels  : actual labels (Tensor)
     @return accuracy: number of correct divided by total
     """
-    zero = torch.zeros(1)
-    one = torch.ones(1)
+    device = predicts.get_device()
+    zero = torch.zeros(1).to(device)
+    one = torch.ones(1).to(device)
     predicted_labels = torch.sigmoid(predicts)
     predicted_labels = torch.where(predicted_labels > threshold, one, zero)
     return predicted_labels.eq(labels).sum().item()

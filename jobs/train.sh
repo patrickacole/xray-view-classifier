@@ -29,6 +29,6 @@ then
 fi
 
 # Data is ready now run python file
-cd ~/Projects/chexpert/
+cd ~/Projects/xray-view-classifier/
 echo "Running python script now"
-python main.py --data /data/pacole2/CheXpert-v1.0-small/ --lr 2e-4 --train
+python main.py --data /data/pacole2/CheXpert-v1.0-small/ --lr 2e-4 --epoch 10 --train

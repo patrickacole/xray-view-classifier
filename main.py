@@ -201,7 +201,7 @@ def train(model, trainloader, testloader):
                         checkpoint=args.checkpointdir)
 
         # lrscheduler step
-        lrscheduler.step()
+        lrscheduler.step(test_loss)
 
         # save curves
         save_curves(train_scores, test_scores, "Accuracy")

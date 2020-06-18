@@ -1,0 +1,83 @@
+Thu Jun 18 00:39:31 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.36.06    Driver Version: 450.36.06    CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 00000000:04:00.0 Off |                  N/A |
+| 29%   62C    P0    74W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX TIT...  Off  | 00000000:05:00.0 Off |                  N/A |
+| 30%   63C    P0    75W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  GeForce GTX TIT...  Off  | 00000000:08:00.0 Off |                  N/A |
+| 19%   41C    P0    71W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  GeForce GTX TIT...  Off  | 00000000:09:00.0 Off |                  N/A |
+| 19%   38C    P0    70W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  GeForce GTX TIT...  Off  | 00000000:84:00.0 Off |                  N/A |
+| 44%   82C    P2   237W / 250W |   9476MiB / 12212MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  GeForce GTX TIT...  Off  | 00000000:85:00.0 Off |                  N/A |
+| 18%   35C    P0    68W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  GeForce GTX TIT...  Off  | 00000000:88:00.0 Off |                  N/A |
+| 18%   31C    P0    68W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  GeForce GTX TIT...  Off  | 00000000:89:00.0 Off |                  N/A |
+| 19%   34C    P0    71W / 250W |      0MiB / 12212MiB |      3%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    4   N/A  N/A     28753      C   ...3/envs/pyt-1-4/bin/python     9473MiB |
++-----------------------------------------------------------------------------+
+Running python script now
+Using the following hyperparemters:
+Data:                 /data/pacole2/CheXpert-v1.0-small/
+Learning rate:        0.0002
+Number of epochs:     10
+Batch size:           128
+Checkpoint directory: checkpoints/
+Train:                True
+Test:                 False
+Plot:                 False
+Prefix:               best
+Load:                 False
+Cuda:                 2
+
+GPU devices being used:  [0, 1]
+train stats..
+Frontal    48580
+Lateral    32387
+Name: Frontal/Lateral, dtype: int64 
+
+valid stats..
+Frontal    202
+Lateral     32
+Name: Frontal/Lateral, dtype: int64 
+
+Epoch [1 / 10]: Training loss: 0.0038, Training score: 99.84, Test loss: 0.0001, Test score: 100.00, Epoch elapsed time: [Training: 207.09, Test: 1.56] secs
+Epoch [2 / 10]: Training loss: 0.0009, Training score: 99.97, Test loss: 0.0000, Test score: 100.00, Epoch elapsed time: [Training: 191.52, Test: 1.36] secs
+Epoch [3 / 10]: Training loss: 0.0007, Training score: 99.99, Test loss: 0.0002, Test score: 100.00, Epoch elapsed time: [Training: 191.42, Test: 1.26] secs
+Epoch [4 / 10]: Training loss: 0.0009, Training score: 99.97, Test loss: 0.0001, Test score: 100.00, Epoch elapsed time: [Training: 209.56, Test: 1.29] secs
+Epoch [5 / 10]: Training loss: 0.0013, Training score: 99.95, Test loss: 0.0000, Test score: 100.00, Epoch elapsed time: [Training: 202.54, Test: 1.30] secs
+Epoch [6 / 10]: Training loss: 0.0006, Training score: 99.98, Test loss: 0.0000, Test score: 100.00, Epoch elapsed time: [Training: 191.16, Test: 1.31] secs
+Epoch [7 / 10]: Training loss: 0.0001, Training score: 100.00, Test loss: 0.0000, Test score: 100.00, Epoch elapsed time: [Training: 190.49, Test: 1.30] secs
+Epoch [8 / 10]: Training loss: 0.0001, Training score: 100.00, Test loss: 0.0000, Test score: 100.00, Epoch elapsed time: [Training: 207.15, Test: 1.34] secs
+Epoch [9 / 10]: Training loss: 0.0013, Training score: 99.96, Test loss: 0.0000, Test score: 100.00, Epoch elapsed time: [Training: 202.48, Test: 1.25] secs
+Epoch [10 / 10]: Training loss: 0.0009, Training score: 99.98, Test loss: 0.0001, Test score: 100.00, Epoch elapsed time: [Training: 192.13, Test: 1.32] secs
