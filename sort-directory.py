@@ -4,6 +4,7 @@ import torch
 import torchvision.transforms as transforms
 
 from argparse import ArgumentParser
+from PIL import Image
 
 # custom imports
 from modules.resnet18 import ResNet18
@@ -43,16 +44,22 @@ def sort_directory():
     checkpointdir = os.path.dirname(args.model_path)
     load_checkpoint(checkpointdir, prefix, model)
 
+    # put model in evaluation mode
+    model.eval()
+
     # get desired transform needed for the model
-    transform = transforms.Compose([transforms.Resize((256, 256)), # model was trained with images of size 256x256
-                                    transforms.ToTensor(),         # transform PIL image to tensor
+    transform = transforms.Compose([transforms.Resize((256, 256), Image.LANCZOS),    # model was trained with images of size 256x256
+                                    transforms.ToTensor(),                           # transform PIL image to tensor
                                     transforms.Normalize((0.502845,), (0.290049,))]) # mean and std of original dataset
 
     # check if output directory given
     if args.output_dir == None:
         # remove the last directory from the data path
         # os sep is '/' on unix based and '\' on windows based
-        basedir = os.sep.join(args.datapath.split(os.sep)[:-1])
+        if args.datapath[-1] == os.sep:
+            basedir = os.sep.join(args.datapath.split(os.sep)[:-2])
+        else:
+            basedir = os.sep.join(args.datapath.split(os.sep)[:-1])
         # add new directory name
         args.output_dir = os.path.join(basedir, 'sorted-data')
 
@@ -109,10 +116,10 @@ def sort_directory():
                 # image tensor needs 3 channels to be passed into the model
                 image_tensor = image_tensor.repeat(1, 3, 1, 1)
                 # get the output score of the model
-                score = model(image_tensor)
+                score = torch.sigmoid(model(image_tensor)).data
                 # determine if the image is a frontal or lateral
                 radiograph_type = None
-                if score[0] > 0.5:
+                if score[0,0] > 0.5:
                     radiograph_type = 'Frontal-{}'.format(frontal_num)
                     frontal_num += 1
                 else:
