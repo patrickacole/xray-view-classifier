@@ -5,6 +5,7 @@ import torchvision.transforms as transforms
 
 from argparse import ArgumentParser
 from PIL import Image
+from tqdm import tqdm
 
 # custom imports
 from modules.resnet18 import ResNet18
@@ -83,7 +84,7 @@ def sort_directory():
     #
     # Contents of key images will be ignored
 
-    for acc_num in os.listdir(args.datapath):
+    for acc_num in tqdm(os.listdir(args.datapath)):
         # get the outer path for the acc_num
         outer_path = os.path.join(args.datapath, acc_num)
         # check if acc_num is a directory; if not skip

@@ -1,5 +1,9 @@
 # Classifier for predicting the orientation of radiographs
 
+## Install Dependencies
+The code for this repo depends on a couple python libraries that are listed in `requirements.txt`. To install them run the following code:
+<pre><code>pip install -r requirements.txt</code></pre>
+
 ## Sorting views
 For sorting the data the script `sort-directory.py` is given. This will accept as a parameter path to the data as a necessary parameter, and gives optional parameters of an output directory, and model path.
 
@@ -42,7 +46,7 @@ optional arguments:
 ## Training the model
 The code to train and test the models accuracy is called `main.py`. The best model was trained for 10 epochs and is stored at `checkpoints/last.pth`. Below are some plots of the accuracy and the loss obtained when training on a subset of the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/) dataset by Stanford.
 
-<img src="./outputs/loss.png" alt="drawing" width="250"/> <img src="./outputs/accuracy.png" alt="drawing" width="250"/>
+<img src="./outputs/loss.png" alt="drawing" width="300"/> <img src="./outputs/accuracy.png" alt="drawing" width="300"/>
 
 Below is the usage for training / testing the model
 <pre><code>Usage: main.py [-h] [--data DATA] [--lr LR] [--epochs EPOCHS] [--batch BATCH]
